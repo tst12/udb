@@ -1,0 +1,83 @@
+-- 5019
+DELETE FROM `spell_proc_event` WHERE `entry` IN (6268,7137,8260);
+INSERT INTO `spell_proc_event` VALUES
+ (6268,0,0,0,0,0,0x00000001,0),
+ (8260,0,0,0,0,0,0x00000001,0);
+DELETE FROM `spell_proc_event` WHERE `entry` IN (24597,24603,24604,24605,30636,35942);
+INSERT INTO `spell_proc_event` VALUES
+ (24597,0,0,0,0,0,0x00080001,0),
+ (24603,0,0,0,0,0,0x00080001,0),
+ (24604,0,0,0,0,0,0x00080001,0),
+ (24605,0,0,0,0,0,0x00080001,0),
+ (30636,0,0,0,0,0,0x00080001,0),
+ (35942,0,0,0,0,0,0x00080001,0);
+DELETE FROM `spell_proc_event` WHERE `entry` IN (37604);
+INSERT INTO `spell_proc_event` VALUES
+ (37604,0,0,0,0,0,0x00004000,0);
+DELETE FROM `spell_proc_event` WHERE `entry` IN (24389);
+INSERT INTO `spell_proc_event` VALUES
+ (24389,0x04,0,0,0,0,0x00020000,0);
+DELETE FROM `spell_proc_event` WHERE `entry` IN (28780);
+INSERT INTO `spell_proc_event` VALUES
+ (28780,0,0,0,0,0,0x08020000,0);
+
+-- 5030
+ALTER TABLE `item_template` CHANGE `AllowableClass` `AllowableClass` mediumint(9) not null default '-1';
+ALTER TABLE `item_template` CHANGE `AllowableRace`  `AllowableRace` mediumint(9) not null default '-1';
+UPDATE `item_template` SET `AllowableClass` = -1 WHERE `AllowableClass` = 0;
+UPDATE `item_template` SET `AllowableRace`  = -1 WHERE `AllowableRace`  = 0;
+
+-- 5036
+DELETE FROM `spell_affect` WHERE `entry` IN (12945);
+INSERT INTO `spell_affect` VALUES
+ (12945,0,0,0,0,0,0,0x0000000000001000,0),
+ (12945,1,0,0,0,0,0,0x0000000000001000,0);
+DELETE FROM `spell_affect` WHERE `entry` IN (29787,29790,29792);
+INSERT INTO `spell_affect` VALUES
+ (29787,0,0,0,0,0,0,0x0000036C2A764EEF,0),
+ (29790,0,0,0,0,0,0,0x0000036C2A764EEF,0),
+ (29792,0,0,0,0,0,0,0x0000036C2A764EEF,0);
+DELETE FROM `spell_affect` WHERE `entry` IN (21887);
+INSERT INTO `spell_affect` VALUES
+ (21887,0,0,0,0,0,0,0x0000036C2A764EEF,0);
+DELETE FROM `spell_affect` WHERE `entry` IN (16493,16494);
+INSERT INTO `spell_affect` VALUES 
+ (16493,0,0,0,0,0,0,0x0000014D2A600CEF,0),
+ (16494,0,0,0,0,0,0,0x0000014D2A600CEF,0);
+DELETE FROM `spell_affect` WHERE `entry` IN (37517);
+INSERT INTO `spell_affect` VALUES
+ (37517,0,0,0,0,0,0,0x0000014D2A600CEF,0);
+/* target spell removed */
+DELETE FROM `spell_affect` WHERE `entry` IN (12866,12865,12864,12863,12325);
+INSERT INTO `spell_affect` VALUES 
+ (12866,0,0,0,0,0,0,0x0000000000000000,0),
+ (12865,0,0,0,0,0,0,0x0000000000000000,0),
+ (12864,0,0,0,0,0,0,0x0000000000000000,0),
+ (12863,0,0,0,0,0,0,0x0000000000000000,0),
+ (12325,0,0,0,0,0,0,0x0000000000000000,0);
+-- (35446) Improved Mortal Strike (Rank 1)
+DELETE FROM `spell_affect` WHERE `entry` IN (35446,35448,35449,35450,35451);
+INSERT INTO `spell_affect` VALUES
+ (35446,0,0,0,0,0,0,0x0000000002000000,0),
+ (35446,1,0,0,0,0,0,0x0000000002000000,0),
+ (35448,0,0,0,0,0,0,0x0000000002000000,0),
+ (35448,1,0,0,0,0,0,0x0000000002000000,0),
+ (35449,0,0,0,0,0,0,0x0000000002000000,0),
+ (35449,1,0,0,0,0,0,0x0000000002000000,0),
+ (35450,0,0,0,0,0,0,0x0000000002000000,0),
+ (35450,1,0,0,0,0,0,0x0000000002000000,0),
+ (35451,0,0,0,0,0,0,0x0000000002000000,0),
+ (35451,1,0,0,0,0,0,0x0000000002000000,0);
+DELETE FROM `spell_affect` WHERE `entry` IN (38407);
+INSERT INTO `spell_affect` VALUES
+ (38407,0,0,0,0,0,0,0x0000000100000000,0);
+DELETE FROM `spell_affect` WHERE `entry` IN (28842);
+INSERT INTO `spell_affect` VALUES
+ (28842,0,0,0,0,0,0,0x0000000100004440,0);
+ 
+ -- 5039
+DELETE FROM `spell_proc_event` WHERE `entry` IN (21890);
+INSERT INTO `spell_proc_event` VALUES
+ (21890,0,0,0,4,0x0000036C2A764EEF,0x00004001,0);
+
+
