@@ -1,0 +1,229 @@
+ALTER TABLE `item_template` 
+   ADD COLUMN `minMoneyLoot` int(11) unsigned NOT NULL default '0' AFTER `FoodType`,
+   ADD COLUMN `maxMoneyLoot` int(11) unsigned NOT NULL default '0' AFTER `minMoneyLoot`;
+DELETE FROM command WHERE name IN ('cast','castback');
+INSERT INTO `command` VALUES 
+('cast',3,'Syntax: .cast #spellid\r\n  Cast #spellid to selected target. If no target selected cast to self.'),
+('castback',3,'Syntax: .castback #spellid\r\n  Selected target cast #spellid to your character.');
+
+DELETE FROM `spell_affect` WHERE `entry` IN (21873,38314);
+INSERT INTO `spell_affect` VALUES 
+(21873,0,0,0,0,0,0,0x0000E000E2000000,0), -- ?? rare druid armor
+(38314,0,0,0,0,0,0,0x0000E000E2000000,0); -- for item 31334
+
+DELETE FROM `spell_affect` WHERE `entry` IN (16870);
+INSERT INTO `spell_affect` VALUES 
+(16870,0,0,0,0,0,0,0x001007F100E3FEFF,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (16947,16948,16949);
+INSERT INTO `spell_affect` VALUES 
+(16947,1,0,0,0,0,0,0x0000000002000000,0),
+(16948,1,0,0,0,0,0,0x0000000002000000,0),
+(16949,1,0,0,0,0,0,0x0000000002000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (17104,24943,24944,24945,24946);
+INSERT INTO `spell_affect` VALUES 
+(17104,0,0,0,0,0,0,0x00000010000000F0,0),
+(17104,1,0,0,0,0,0,0x00000010000000F0,0),
+(24943,0,0,0,0,0,0,0x00000010000000F0,0),
+(24943,1,0,0,0,0,0,0x00000010000000F0,0),
+(24944,0,0,0,0,0,0,0x00000010000000F0,0),
+(24944,1,0,0,0,0,0,0x00000010000000F0,0),
+(24945,0,0,0,0,0,0,0x00000010000000F0,0),
+(24945,1,0,0,0,0,0,0x00000010000000F0,0),
+(24946,0,0,0,0,0,0,0x00000010000000F0,0),
+(24946,1,0,0,0,0,0,0x00000010000000F0,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (37721);
+INSERT INTO `spell_affect` VALUES 
+(37721,0,0,0,0,0,0,0x00000010000000F0,1); -- not used in 2.3.0
+
+DELETE FROM `spell_affect` WHERE `entry` IN (42367);
+INSERT INTO `spell_affect` VALUES 
+(42367,0,0,0,0,0,0,0x0000001000000000,0); -- not used in 2.3.0 (?)
+
+DELETE FROM `spell_affect` WHERE `entry` IN (38447);
+INSERT INTO `spell_affect` VALUES 
+(38447,0,0,0,0,0,0,0x0000040000000000,0),
+(38447,1,0,0,0,0,0,0x0000004000000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (37292);
+INSERT INTO `spell_affect` VALUES 
+(37292,0,0,0,0,0,0,0x0008000000000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (39926);
+INSERT INTO `spell_affect` VALUES 
+(39926,1,0,0,0,0,0,0x0000080000000000,0),
+(39926,2,0,0,0,0,0,0x0000200000000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (38416);
+INSERT INTO `spell_affect` VALUES 
+(38416,0,0,0,0,0,0,0x0010000000800000,0),
+(38416,1,0,0,0,0,0,0x0010000000800000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (37736);
+INSERT INTO `spell_affect` VALUES 
+(37736,0,0,0,0,0,0,0x0000040000000000,0),
+(37736,1,0,0,0,0,0,0x0000004000000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (28855);
+INSERT INTO `spell_affect` VALUES 
+(28855,0,0,0,0,0,0,0x0000000000000800,0),
+(28855,1,0,0,0,0,0,0x0010000000000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (23724);
+INSERT INTO `spell_affect` VALUES 
+(23724,0,0,0,0,0,0,0x0000E000E2000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (16833,16834,16835);
+INSERT INTO `spell_affect` VALUES 
+(16833,0,0,0,0,0,0,0x0000E000E2000000,0),
+(16834,0,0,0,0,0,0,0x0000E000E2000000,0),
+(16835,0,0,0,0,0,0,0x0000E000E2000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (16886);
+INSERT INTO `spell_affect` VALUES 
+(16886,0,0,0,0,0,0,0x0000000001000265,1);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (16819,16820);
+INSERT INTO `spell_affect` VALUES 
+(16819,0,0,0,0,0,0,0x0002122000600707,0),
+(16820,0,0,0,0,0,0,0x0002122000600707,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (17116,38466);
+INSERT INTO `spell_affect` VALUES 
+(17116,0,0,0,0,0,0,0x0002002010000261,0),
+(38466,0,0,0,0,0,0,0x0008000000000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (37287);
+INSERT INTO `spell_affect` VALUES 
+(37287,0,0,0,0,0,0,0x0000E000E2000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (17118,17119,17120,17121,17122);
+INSERT INTO `spell_affect` VALUES 
+(17118,0,0,0,0,0,0,0x001005D000E193F7,0),
+(17118,1,0,0,0,0,0,0x0004103000340750,0),
+(17119,0,0,0,0,0,0,0x001005D000E193F7,0),
+(17119,1,0,0,0,0,0,0x0004103000340750,0),
+(17120,0,0,0,0,0,0,0x001005D000E193F7,0),
+(17120,1,0,0,0,0,0,0x0004103000340750,0),
+(17121,0,0,0,0,0,0,0x001005D000E193F7,0),
+(17121,1,0,0,0,0,0,0x0004103000340750,0),
+(17122,0,0,0,0,0,0,0x001005D000E193F7,0),
+(17122,1,0,0,0,0,0,0x0004103000340750,0);
+DELETE FROM command WHERE name IN ('cast','castback');
+INSERT INTO `command` VALUES 
+('cast',3,'Syntax: .cast #spellid\r\n  Cast #spellid to selected target. If no target selected cast to self.'),
+('castback',3,'Syntax: .castback #spellid\r\n  Selected target cast #spellid to your character.');
+
+DELETE FROM `spell_affect` WHERE `entry` IN (34453,34454);
+INSERT INTO `spell_affect` VALUES 
+(34453,1,0,0,0,0,0,0x0000000400000000,0),
+(34454,1,0,0,0,0,0,0x0000000400000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (24348);
+INSERT INTO `spell_affect` VALUES 
+(24348,0,0,0,0,0,0,0x0000000000200000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (34462,34464,34465);
+INSERT INTO `spell_affect` VALUES 
+(34462,1,0,0,0,0,0,0x0000000800000000,0),
+(34464,1,0,0,0,0,0,0x0000000800000000,0),
+(34465,1,0,0,0,0,0,0x0000000800000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (19239,19245);
+INSERT INTO `spell_affect` VALUES 
+(19239,0,0,0,0,0,0,0x0000000000000018,0),
+(19239,1,0,0,0,0,0,0x0000000000000004,0),
+(19245,0,0,0,0,0,0,0x0000000000000018,0),
+(19245,1,0,0,0,0,0,0x0000000000000004,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (19416,19417,19418,19419,19420);
+INSERT INTO `spell_affect` VALUES 
+(19416,0,0,0,0,0,0,0x000010810007DA00,0),
+(19417,0,0,0,0,0,0,0x000010810007DA00,0),
+(19418,0,0,0,0,0,0,0x000010810007DA00,0),
+(19419,0,0,0,0,0,0,0x000010810007DA00,0),
+(19420,0,0,0,0,0,0,0x000010810007DA00,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (34455,34459,34460);
+INSERT INTO `spell_affect` VALUES 
+(34455,0,0,0,0,0,0,0x0000002000000000,0),
+(34455,1,0,0,0,0,0,0x0000004000000000,0),
+(34459,0,0,0,0,0,0,0x0000002000000000,0),
+(34459,1,0,0,0,0,0,0x0000004000000000,0),
+(34460,0,0,0,0,0,0,0x0000002000000000,0),
+(34460,1,0,0,0,0,0,0x0000004000000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (35029,35030);
+INSERT INTO `spell_affect` VALUES 
+(35029,1,0,0,0,0,0,0x0000080000000000,0),
+(35030,1,0,0,0,0,0,0x0000080000000000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (19572,19573);
+INSERT INTO `spell_affect` VALUES 
+(19572,1,0,0,0,0,0,0x0000000000800000,0),
+(19573,1,0,0,0,0,0,0x0000000000800000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (19464,19465,19466,19467,19468);
+INSERT INTO `spell_affect` VALUES 
+(19464,0,0,0,0,0,0,0x0000010000004000,0),
+(19464,1,0,0,0,0,0,0x0000008000000000,0),
+(19464,2,0,0,0,0,0,0x000011800000C000,0),
+(19465,0,0,0,0,0,0,0x0000010000004000,0),
+(19465,1,0,0,0,0,0,0x0000008000000000,0),
+(19465,2,0,0,0,0,0,0x000011800000C000,0),
+(19466,0,0,0,0,0,0,0x0000010000004000,0),
+(19466,1,0,0,0,0,0,0x0000008000000000,0),
+(19466,2,0,0,0,0,0,0x000011800000C000,0),
+(19467,0,0,0,0,0,0,0x0000010000004000,0),
+(19467,1,0,0,0,0,0,0x0000008000000000,0),
+(19467,2,0,0,0,0,0,0x000011800000C000,0),
+(19468,0,0,0,0,0,0,0x0000010000004000,0),
+(19468,1,0,0,0,0,0,0x0000008000000000,0),
+(19468,2,0,0,0,0,0,0x000011800000C000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (19485,19487,19488,19489,19490);
+INSERT INTO `spell_affect` VALUES 
+(19485,0,0,0,0,0,0,0x0000000000000001,0),
+(19487,0,0,0,0,0,0,0x0000000000000001,0),
+(19488,0,0,0,0,0,0,0x0000000000000001,0),
+(19489,0,0,0,0,0,0,0x0000000000000001,0),
+(19490,0,0,0,0,0,0,0x0000000000000001,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (32203,41660);
+INSERT INTO `spell_affect` VALUES 
+(32203,1,0,0,0,0,0,0x0001100001C22000,0),
+(41660,1,0,0,0,0,0,0x0001100001C22000,0);
+
+DELETE FROM `spell_affect` WHERE `entry` IN (37508);
+INSERT INTO `spell_affect` VALUES 
+(37508,0,0,0,0,0,0,0x0000000100061800,0);
+ALTER TABLE `creature_template_addon` 
+    DROP KEY `entry`,
+    ADD PRIMARY KEY(`entry`);
+ALTER TABLE `game_graveyard_zone` 
+  DROP COLUMN `ghost_map`;
+
+UPDATE `game_graveyard_zone` as G1,`game_graveyard_zone` as G2
+  SET G1.`faction` = 0
+  WHERE G1.`id`=G2.`id` AND G1.`ghost_zone`=G2.`ghost_zone` AND G1.`faction`=67 AND (G2.`faction`=469 OR G2.`faction`=0);
+
+UPDATE `game_graveyard_zone` as G1,`game_graveyard_zone` as G2
+  SET G1.`faction` = 0
+  WHERE G1.`id`=G2.`id` AND G1.`ghost_zone`=G2.`ghost_zone` AND G1.`faction`=469 AND (G2.`faction`=67 OR G2.`faction`=0);
+
+DELETE FROM `game_graveyard_zone` WHERE `ghost_zone`= 0;
+
+DROP TABLE IF EXISTS `game_graveyard_zone_new`;
+CREATE TABLE `game_graveyard_zone_new` (
+  `id` int(11) unsigned NOT NULL default '0',
+  `ghost_zone` int(11) unsigned NOT NULL default '0',
+  `faction` int(11) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`,`ghost_zone`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Trigger System';
+
+INSERT IGNORE INTO `game_graveyard_zone_new` SELECT `id`,`ghost_zone`,`faction` FROM `game_graveyard_zone`;
+
+DROP TABLE `game_graveyard_zone`;
+RENAME TABLE `game_graveyard_zone_new` TO `game_graveyard_zone`;
